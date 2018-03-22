@@ -1,18 +1,20 @@
 'use strict'
 import React, { Component } from 'react';
-import AgregarMapa from './components/AgregarMapa';
+import AddMap from './components/AgregarMapa';
 import HomeScreen from './components/Home';
 import thunk from 'redux-thunk';
 import { createStore } from 'redux';
-
 import {
     StackNavigator, TabNavigator
 } from 'react-navigation';
+import VerMapa from './components/VerMapa';
 
 //Funcion Main
 const MainStack = StackNavigator(
     {
         Home: { screen: HomeScreen },
+        ViewMap: { screen: VerMapa },
+        AddMap: { screen: AddMap }
     },
     {
         initialRouteName: 'Home',

@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Text } from 'native-base'; 
+import { Container, Text, Header, Content, Icon, Card, Button, Right, CardItem, Body, Fab, View } from 'native-base';
 import SplashScreen from 'react-native-smart-splash-screen';
-
+import CardMap from './CardMap';
 class HomeScreen extends Component {
-    static navigationOptions = ({ navigation }) => {
-        const { navigate } = navigation;
-        return {
-            title: 'Welcome Home!',
-            headerStyle: {
-                backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            },
-        }
-    };
+    static navigationOptions = {
+        header: null
+    }
     componentDidMount() {
         SplashScreen.close({
             animationType: SplashScreen.animationType.scale,
@@ -25,9 +15,16 @@ class HomeScreen extends Component {
     }
     render() {
         return (
-            <Container>
-                <Text style={{ fontSize: 30 }}>Home!</Text>
-            </Container>
+            <View style={{ flex: 1 }}>
+                <CardMap name='Map' link='ViewMap' icon='eye' description='desc' navigation={this.props.navigation} />
+                <Fab
+                    containerStyle={{}}
+                    style={{ backgroundColor: '#5067FF' }}
+                    position="bottomRight"
+                    onPress={() => { this.props.navigation.navigate('AddMap') }}>
+                    <Text>+</Text>
+                </Fab>
+            </View>
         );
     }
 }
