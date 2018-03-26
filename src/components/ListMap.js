@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { Container, Header, Content, Button, Icon, List, ListItem, Text } from 'native-base';
+
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
 const datas = [
     'Map0',
     'Map1',
@@ -45,9 +49,11 @@ class ListMap extends Component {
                     <List
                         dataSource={this.ds.cloneWithRows(this.state.listViewData)}
                         renderRow={data =>
-                            <ListItem  onPress={() => { this.props.navigation.navigate('ViewMap',{
-                                Param: data
-                                }) }}>
+                            <ListItem onPress={() => {
+                                this.props.navigation.navigate('ViewMap', {
+                                    Param: data
+                                })
+                            }}>
                                 <Text> {data} </Text>
                             </ListItem>}
                         renderLeftHiddenRow={data =>
