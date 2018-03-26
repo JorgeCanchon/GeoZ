@@ -3,7 +3,6 @@ package com.geoz;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.reactnativecomponent.splashscreen.RCTSplashScreenPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -13,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.reactnativecomponent.splashscreen.RCTSplashScreenPackage;    //import package
+import com.airbnb.android.react.maps.MapsPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -26,7 +26,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-          new RCTSplashScreenPackage() 
+          new RCTSplashScreenPackage() ,
+          new MapsPackage()
       );
     }
 

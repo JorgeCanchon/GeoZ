@@ -1,19 +1,19 @@
 'use strict'
 import React, { Component } from 'react';
-import AddMap from './components/AgregarMapa';
-import HomeScreen from './components/Home';
 import thunk from 'redux-thunk';
 import { createStore } from 'redux';
 import {
-    StackNavigator, TabNavigator
+    StackNavigator, TabNavigator, DrawerNavigator
 } from 'react-navigation';
-import VerMapa from './components/VerMapa';
-
+import AddMap from './src/AgregarMapa';
+import HomeScreen from './src/Home';
+import SideBar from './src/components/SideBar';
+import ViewMap from './src/ViewMap';
 //Funcion Main
 const MainStack = StackNavigator(
     {
         Home: { screen: HomeScreen },
-        ViewMap: { screen: VerMapa },
+        ViewMap: { screen: ViewMap },
         AddMap: { screen: AddMap }
     },
     {
@@ -22,7 +22,7 @@ const MainStack = StackNavigator(
 );
 //Funcion que devuelve un componente React
 //Funcion root
-const App = StackNavigator(
+const App = DrawerNavigator(
     // this.props.screenProps ;
     {
         Main: {
@@ -30,8 +30,7 @@ const App = StackNavigator(
         }
     },
     {
-        mode: 'Modal',
-        headerMode: 'none',
+        contentComponent: props => <SideBar {...props} />
     }
 );
 export default class GeoZ extends Component {
