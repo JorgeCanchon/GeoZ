@@ -5,10 +5,10 @@ import { createStore } from 'redux';
 import {
     StackNavigator, TabNavigator, DrawerNavigator
 } from 'react-navigation';
-import AddMap from './src/AgregarMapa';
-import HomeScreen from './src/Home';
+import AddMap from './src/layout/AgregarMapa';
+import HomeScreen from './src/layout/Home';
 import SideBar from './src/components/SideBar';
-import ViewMap from './src/ViewMap';
+import ViewMap from './src/layout/ViewMap';
 //Funcion Main
 const MainStack = StackNavigator(
     {
